@@ -1,0 +1,39 @@
+[
+    {
+      "image": "image1.jpg",
+      "title": "Purple Laser",
+      "text": "Memory studies reveal how humans store and recall information. This field explores both biological and psychological factors behind memory retention.",
+      "question": "Purple Laser question Purple Laser question Purple Laser question Purple Laser question"
+    },
+    {
+      "image": "image2.jpg",
+      "title": "Ben Data Vis",
+      "text": "Visual cognition refers to the brain's ability to process and interpret visual information. It's key to object recognition and spatial awareness.",
+      "question": " Ben data question  Ben data question Ben data question Ben data question Ben data question Ben data question"
+    },
+    {
+      "image": "image3.jpg",
+      "title": "Pink electric",
+      "text": "Neural pathways are like highways in the brain. They connect different parts of the nervous system, enabling quick communication and processing.",
+      "question": "Pink electric question Pink electric question Pink electric question Pink electric question"
+    },
+    {
+        "image": "image4.jpg",
+        "title": "Gold Array",
+        "text": "Neural pathways are like highways in the brain. They connect different parts of the nervous system, enabling quick communication and processing.",
+        "question": "Gold Array question"
+      },
+    {
+        "image": "image5.jpg",
+        "title": "Earth Green",
+        "text": "Neural pathways are like highways in the brain. They connect different parts of the nervous system, enabling quick communication and processing.",
+        "question": "Earth Green question"
+      },
+    {
+        "image": "image6.jpg",
+        "title": "Orange Swirl",
+        "text": "Neural pathways are like highways in the brain. They connect different parts of the nervous system, enabling quick communication and processing.",
+        "question": "Orange Swirl question"
+      }
+  ]
+  
