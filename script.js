@@ -86,7 +86,12 @@ const images = [
       flippedTiles = [];
   
       if (matchedPairs === 6) {
-        alert("You win!");
+        // Wait for two frames so the flip can visually complete
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            alert("You win!");
+          });
+        });
       } else {
         setTimeout(() => {
           setNewQuestion();
@@ -199,10 +204,10 @@ const images = [
   function setNewQuestion() {
     const unused = levelData.filter(item => !usedQuestions.includes(item.image));
   
-    if (unused.length === 0) {
-      alert("All questions answered! Game complete.");
-      return;
-    }
+    // if (unused.length === 0) {
+    //   alert("All questions answered! Game complete.");
+    //   return;
+    // }
   
     currentQuestionItem = unused[Math.floor(Math.random() * unused.length)];
     usedQuestions.push(currentQuestionItem.image);
