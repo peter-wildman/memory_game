@@ -1,39 +1,39 @@
 [
     {
       "image": "image1.jpg",
-      "title": "Purple Laser",
-      "text": "Memory studies reveal how humans store and recall information. This field explores both biological and psychological factors behind memory retention.",
-      "question": "Purple Laser question Purple Laser question Purple Laser question Purple Laser question"
+      "title": "Laser Cavities for Quantum Science",
+      "text": "The Quantum Control Laboratory (QCL) is interested in the intersection of control engineering with experimental quantum information, quantum sensing, and precision metrology.",
+      "question": "Find the image that is connected to research from the Quantum Control Laboratory (QCL)"
     },
     {
       "image": "image2.jpg",
-      "title": "Ben Data Vis",
-      "text": "Visual cognition refers to the brain's ability to process and interpret visual information. It's key to object recognition and spatial awareness.",
-      "question": " Ben data question  Ben data question Ben data question Ben data question Ben data question Ben data question"
+      "title": "Detecting structure in diverse scientific signals",
+      "text": "This image represents a unification of both scientific data and methods, illustrating the result of applying 7182 analysis methods, the columns (from the 'hctsa' library developed by Ben Fulcher) to 1000 diverse signal rows. ",
+      "question": "Find the image that represents the application of over 7000 data analysis methods."
     },
     {
       "image": "image3.jpg",
-      "title": "Pink electric",
-      "text": "Neural pathways are like highways in the brain. They connect different parts of the nervous system, enabling quick communication and processing.",
-      "question": "Pink electric question Pink electric question Pink electric question Pink electric question"
+      "title": "The electron tree",
+      "text": "These enchanting images were created by high energy electrons colliding with a block of Perspex. The electrons were produced by a linear accelerator, once used to treat cancer.",
+      "question": "Find the image that was created by high energy electrons solliding with Perspex."
     },
     {
         "image": "image4.jpg",
-        "title": "Gold Array",
-        "text": "Neural pathways are like highways in the brain. They connect different parts of the nervous system, enabling quick communication and processing.",
-        "question": "Gold Array question"
+        "title": "The Eyes of a Detector",
+        "text": "This photograph shows part of a photomultiplier tube (light detector) array behind a thin wire mesh. These photomultiplier tubes are the eyes of the LUX-ZEPLIN (LZ) experiment, looking to detect faint light signals from the rare interaction of dark matter particles.",
+        "question": "Find the image of the aparatus looking to detect faint light signals from the rare interaction of dark matter particles."
       },
     {
         "image": "image5.jpg",
-        "title": "Earth Green",
-        "text": "Neural pathways are like highways in the brain. They connect different parts of the nervous system, enabling quick communication and processing.",
-        "question": "Earth Green question"
+        "title": "Laser-driven light-sail",
+        "text": "This is an artist’s impression of a laser-driven light-sail in its acceleration phase. Such light-sails could reach up to 20 percent of the speed of light, reaching our nearest neighbour Proxima Centauri within twenty years. This would allow us to send tiny, microchip sized, probes to explore the potential for life on the planet Proxima B.",
+        "question": "Find the image of a laser-drive light-sail."
       },
     {
         "image": "image6.jpg",
-        "title": "Orange Swirl",
-        "text": "Neural pathways are like highways in the brain. They connect different parts of the nervous system, enabling quick communication and processing.",
-        "question": "Orange Swirl question"
+        "title": "Spiral binary star orbit",
+        "text": "Apep and the Spiral Binary Star Orbit (left), taken with the European Southern Observatory's Very Large Telescope in Chile, shows the elegant dust plume surrounding the star system Apep.",
+        "question": "Find the image of the dust ploom surrounding the star system Apep."
       }
   ]
   
