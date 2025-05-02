@@ -34,6 +34,42 @@
         "title": "Spiral binary star orbit",
         "text": "Apep and the Spiral Binary Star Orbit (left), taken with the European Southern Observatory's Very Large Telescope in Chile, shows the elegant dust plume surrounding the star system Apep.",
         "question": "Find the image of the dust ploom surrounding the star system Apep."
+      },
+    {
+        "image": "image7.jpg",
+        "title": "The Tippe Top",
+        "text": "The tippe top is a spinning top with a round base and a short stem. When spun on a flat surface, the tippe top spontaneously inverts itself, so that it ends up spinning on its stem.",
+        "question": "Find the image of the object that spontaneously inverts itself."
+      },
+    {
+        "image": "image8.jpg",
+        "title": "The ionization state of gas in galaxies",
+        "text": "Gas in galaxies can be excited and ionized by different physical processes. By comparing the emission of the gas from different elements we can characterize the nature of the ionization. <br/><br/> Each small, approximately circular, image shows a map of the ratio of nitrogen to hydrogen emission across an individual galaxy.",
+        "question": "Find the image that is a map of the ratio of nitrogen to hydrogen emission across an individual galaxy."
+      },
+    {
+        "image": "image9.jpg",
+        "title": "Silicon Photonic Chip",
+        "text": "In the image, an integrated photonic chip is wire-bonded to a printed circuit board with an Australian two-dollar coin placed for scale reference. The micron-sized metal wires are serving their purpose for electronic-photonics interactions.<br/><br/> The chip, fabricated at an international foundry, contains micron-sized modulators, photodetectors, and heaters. This chip is made of silicon and used for microwave signal processing and telecommunications signal filtering.",
+        "question": "Find the image of an integrated photonic chip wire-bonded to a printed circuit board."
+      },
+    {
+        "image": "image10.jpg",
+        "title": "Ultrapure single-crystalline gold nanoflake",
+        "text": "This nanoflake of ultrapure single-crystalline gold was grown via a chemical process and transferred onto a suitable substrate for application in plasmonic nanostructures.",
+        "question": "Find the image of a nanoflake of ultrapure single-crystalline gold."
+      },
+    {
+        "image": "image11.jpg",
+        "title": "Gravitational Microlensing",
+        "text": "This image is a computer simulation of gravitational lensing, with yellow being regions of focusing.<br/><br/>The larger pattern is due to the gravitational lensing by stars, with the finer features formed by planets and black holes orbiting amongst them.",
+        "question": "Find the image that is a computer simulation of gravitational lensing."
+      },
+    {
+        "image": "image12.jpg",
+        "title": "Probing Inside stars using asteroseismology",
+        "text": "Asteroseismology is the study of stellar oscillations (or “starquakes”) and can be used to study the internal properties of stars.<br/><br/>The images show oscillations measured in nine different stars, which range in size from red giants (top row) down to the Sun (bottom right), and are based on observations from NASA’s Kepler, TESS and SOHO missions.",
+        "question": "Find the image that is a measurement of stellar oscillations(or “starquakes”)"
       }
   ]
   
