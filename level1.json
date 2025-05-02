@@ -1,7 +1,7 @@
 [
     {
       "image": "image1.jpg",
-      "title": "Laser Cavities for Quantum Science",
+      "title": "Laser cavities for quantum science",
       "text": "The Quantum Control Laboratory (QCL) is interested in the intersection of control engineering with experimental quantum information, quantum sensing, and precision metrology.",
       "question": "Find the image that is connected to research from the Quantum Control Laboratory (QCL)"
     },
@@ -19,25 +19,25 @@
     },
     {
         "image": "image4.jpg",
-        "title": "The Eyes of a Detector",
+        "title": "The eyes of a detector",
         "text": "This photograph shows part of a photomultiplier tube (light detector) array behind a thin wire mesh. <br/><br/>These photomultiplier tubes are the eyes of the LUX-ZEPLIN (LZ) experiment, looking to detect faint light signals from the rare interaction of dark matter particles.",
         "question": "Find the image of the aparatus looking to detect faint light signals from the rare interaction of dark matter particles."
       },
     {
         "image": "image5.jpg",
         "title": "Laser-driven light-sail",
-        "text": "This is an artist’s impression of a laser-driven light-sail in its acceleration phase. Such light-sails could reach up to 20 percent of the speed of light, reaching our nearest neighbour Proxima Centauri within twenty years. This would allow us to send tiny, microchip sized, probes to explore the potential for life on the planet Proxima B.",
+        "text": "This is an artist’s impression of a laser-driven light-sail in its acceleration phase. <br/><br/> Such light-sails could reach up to 20 percent of the speed of light, reaching our nearest neighbour Proxima Centauri within twenty years. This would allow us to send tiny, microchip sized, probes to explore the potential for life on the planet Proxima B.",
         "question": "Find the image of a laser-drive light-sail."
       },
     {
         "image": "image6.jpg",
         "title": "Spiral binary star orbit",
-        "text": "Apep and the Spiral Binary Star Orbit (left), taken with the European Southern Observatory's Very Large Telescope in Chile, shows the elegant dust plume surrounding the star system Apep.",
+        "text": "Apep and the Spiral Binary Star Orbit (above), taken with the European Southern Observatory's Very Large Telescope in Chile, shows the elegant dust plume surrounding the star system Apep.",
         "question": "Find the image of the dust ploom surrounding the star system Apep."
       },
     {
         "image": "image7.jpg",
-        "title": "The Tippe Top",
+        "title": "The tippe top",
         "text": "The tippe top is a spinning top with a round base and a short stem. When spun on a flat surface, the tippe top spontaneously inverts itself, so that it ends up spinning on its stem.",
         "question": "Find the image of the object that spontaneously inverts itself."
       },
@@ -49,7 +49,7 @@
       },
     {
         "image": "image9.jpg",
-        "title": "Silicon Photonic Chip",
+        "title": "Silicon photonic chip",
         "text": "In the image, an integrated photonic chip is wire-bonded to a printed circuit board with an Australian two-dollar coin placed for scale reference. The micron-sized metal wires are serving their purpose for electronic-photonics interactions.<br/><br/> The chip, fabricated at an international foundry, contains micron-sized modulators, photodetectors, and heaters. This chip is made of silicon and used for microwave signal processing and telecommunications signal filtering.",
         "question": "Find the image of an integrated photonic chip wire-bonded to a printed circuit board."
       },
@@ -61,13 +61,13 @@
       },
     {
         "image": "image11.jpg",
-        "title": "Gravitational Microlensing",
+        "title": "Gravitational microlensing",
         "text": "This image is a computer simulation of gravitational lensing, with yellow being regions of focusing.<br/><br/>The larger pattern is due to the gravitational lensing by stars, with the finer features formed by planets and black holes orbiting amongst them.",
         "question": "Find the image that is a computer simulation of gravitational lensing."
       },
     {
         "image": "image12.jpg",
-        "title": "Probing Inside stars using asteroseismology",
+        "title": "Probing inside stars using asteroseismology",
         "text": "Asteroseismology is the study of stellar oscillations (or “starquakes”) and can be used to study the internal properties of stars.<br/><br/>The images show oscillations measured in nine different stars, which range in size from red giants (top row) down to the Sun (bottom right), and are based on observations from NASA’s Kepler, TESS and SOHO missions.",
         "question": "Find the image that is a measurement of stellar oscillations(or “starquakes”)"
       }
