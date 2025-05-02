@@ -1,6 +1,8 @@
 const images = [
     'image1.jpg', 'image2.jpg', 'image3.jpg', 
-    'image4.jpg', 'image5.jpg', 'image6.jpg'
+    'image4.jpg', 'image5.jpg', 'image6.jpg',
+    'image7.jpg', 'image8.jpg', 'image9.jpg', 
+    'image10.jpg', 'image11.jpg', 'image12.jpg'
   ]; 
   
   const colors = ['#FF5733', '#33FF57', '#3357FF', '#FF33A6', '#FF8033', '#33FFD5'];
@@ -202,12 +204,9 @@ const images = [
   }
 
   function setNewQuestion() {
-    const unused = levelData.filter(item => !usedQuestions.includes(item.image));
-  
-    // if (unused.length === 0) {
-    //   alert("All questions answered! Game complete.");
-    //   return;
-    // }
+    const unused = levelData.filter(item =>
+      selectedImages.includes(item.image) && !usedQuestions.includes(item.image)
+    );
   
     currentQuestionItem = unused[Math.floor(Math.random() * unused.length)];
     usedQuestions.push(currentQuestionItem.image);
