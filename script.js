@@ -208,6 +208,7 @@ const images = [
     usedQuestions.push(currentQuestionItem.image);
   
     document.getElementById('question-text').textContent = currentQuestionItem.question;
+    document.getElementById('question-title').textContent = currentQuestionItem.title;
     document.getElementById('question-overlay').classList.add('visible');
   }
   
