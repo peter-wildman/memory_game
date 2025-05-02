@@ -20,7 +20,7 @@
     {
         "image": "image4.jpg",
         "title": "The Eyes of a Detector",
-        "text": "This photograph shows part of a photomultiplier tube (light detector) array behind a thin wire mesh. These photomultiplier tubes are the eyes of the LUX-ZEPLIN (LZ) experiment, looking to detect faint light signals from the rare interaction of dark matter particles.",
+        "text": "This photograph shows part of a photomultiplier tube (light detector) array behind a thin wire mesh. <br/><br/>These photomultiplier tubes are the eyes of the LUX-ZEPLIN (LZ) experiment, looking to detect faint light signals from the rare interaction of dark matter particles.",
         "question": "Find the image of the aparatus looking to detect faint light signals from the rare interaction of dark matter particles."
       },
     {

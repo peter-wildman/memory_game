@@ -212,8 +212,8 @@ const images = [
     currentQuestionItem = unused[Math.floor(Math.random() * unused.length)];
     usedQuestions.push(currentQuestionItem.image);
   
-    document.getElementById('question-text').textContent = currentQuestionItem.question;
-    document.getElementById('question-title').textContent = currentQuestionItem.title;
+    document.getElementById('question-text').innerHTML = currentQuestionItem.question;
+    document.getElementById('question-title').innerHTML = currentQuestionItem.title;
     document.getElementById('question-overlay').classList.add('visible');
   }
   
