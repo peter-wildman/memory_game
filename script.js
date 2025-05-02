@@ -13,6 +13,8 @@ const images = [
   let levelData = [];
   let usedQuestions = [];
   let currentQuestionItem = null;
+
+  let firstStudyClose = false;
   
   fetch('level1.json')
     .then(res => res.json())
@@ -173,22 +175,40 @@ const images = [
     document.getElementById('close-study').addEventListener('click', () => {
         // Fade out the study overlay
         document.getElementById('study-screen').classList.remove('show');
-      
+        //only do the following on first study screen close
+        if (matchedPairs === 0 && !firstStudyClose) {
+        firstStudyClose = true;
         // Flip all tiles back
         document.querySelectorAll('.tile').forEach(tile => {
           tile.classList.remove('flip');
         });
         //choose a random unsused question
         setNewQuestion();
+        } 
 
       
         // Wait for the flip animation to complete before showing the first question
         setTimeout(() => {
           document.getElementById('question-overlay').classList.add('visible');
+          document.getElementById('open-study').classList.remove('hidden');
+          document.getElementById('open-study').classList.add('show');
         }, 500); // match your CSS transition duration
       });
 
   }
+
+  document.getElementById('open-study').addEventListener('click', () => {
+    document.getElementById('open-study').classList.remove('show');
+    document.getElementById('open-study').classList.add('hidden');
+    document.getElementById('question-overlay').classList.remove('visible');
+    const studyScreen = document.getElementById('study-screen');
+    const studyItems = studyScreen.querySelector('#study-items');
+    // Show the overlay
+    studyScreen.classList.remove('hidden');
+    requestAnimationFrame(() => {
+      studyScreen.classList.add('show');
+   });
+  }); 
 
   document.getElementById('start-answer').addEventListener('click', () => {
     document.getElementById('question-overlay').classList.remove('visible');
