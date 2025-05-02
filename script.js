@@ -171,11 +171,11 @@ const images = [
         document.querySelectorAll('.tile').forEach(tile => {
           tile.classList.remove('flip');
         });
-
+        //choose a random unsused question
         setNewQuestion();
 
       
-        // Wait for the flip animation to complete before reshuffling
+        // Wait for the flip animation to complete before showing the first question
         setTimeout(() => {
           document.getElementById('question-overlay').classList.add('visible');
         }, 500); // match your CSS transition duration
