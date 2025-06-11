@@ -1,17 +1,19 @@
 const images = [
     'image1.jpg', 'image2.jpg', 'image3.jpg', 
-    'image4.jpg', 'image5.jpg', 'image6.jpg'
+    'image4.jpg', 'image5.jpg', 'image6.jpg',
+    'image7.jpg', 'image8.jpg', 'image9.jpg', 
+    'image10.jpg', 'image11.jpg', 'image12.jpg'
   ]; 
   
   const colors = ['#FF5733', '#33FF57', '#3357FF', '#FF33A6', '#FF8033', '#33FFD5'];
   let tiles = [];
   let flippedTiles = [];
   let matchedPairs = 0;
+  
 
   let levelData = [];
   let usedQuestions = [];
   let currentQuestionItem = null;
-  let firstLoad = true;
   
   fetch('level1.json')
     .then(res => res.json())
@@ -87,7 +89,12 @@ const images = [
       flippedTiles = [];
   
       if (matchedPairs === 6) {
-        alert("You win!");
+        // Wait for two frames so the flip can visually complete
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            alert("You win!");
+          });
+        });
       } else {
         setTimeout(() => {
           setNewQuestion();
@@ -191,25 +198,35 @@ const images = [
     document.getElementById('close-study').addEventListener('click', () => {
         // Fade out the study overlay
         document.getElementById('study-screen').classList.remove('show');
-        openStudyBtn.style.opacity = '1';
-        if(firstLoad){
-          // Flip all tiles back
-          document.querySelectorAll('.tile').forEach(tile => {
-            tile.classList.remove('flip');
-          });
+      
+        // Flip all tiles back
+        document.querySelectorAll('.tile').forEach(tile => {
+          tile.classList.remove('flip');
+        });
 
-          setNewQuestion();
+        setNewQuestion();
 
-        
-          // Wait for the flip animation to complete before reshuffling
-          setTimeout(() => {
-            document.getElementById('question-overlay').classList.add('visible');
-          }, 500); // match your CSS transition duration
-          firstLoad = false;
-        }
+      
+        // Wait for the flip animation to complete before reshuffling
+        setTimeout(() => {
+          document.getElementById('question-overlay').classList.add('visible');
+        }, 500); // match your CSS transition duration
       });
 
   }
+
+  document.getElementById('open-study').addEventListener('click', () => {
+    document.getElementById('open-study').classList.remove('show');
+    document.getElementById('open-study').classList.add('hidden');
+    document.getElementById('question-overlay').classList.remove('visible');
+    const studyScreen = document.getElementById('study-screen');
+    const studyItems = studyScreen.querySelector('#study-items');
+    // Show the overlay
+    studyScreen.classList.remove('hidden');
+    requestAnimationFrame(() => {
+      studyScreen.classList.add('show');
+   });
+  }); 
 
   document.getElementById('start-answer').addEventListener('click', () => {
     document.getElementById('question-overlay').classList.remove('visible');
@@ -225,17 +242,15 @@ const images = [
   }
 
   function setNewQuestion() {
-    const unused = levelData.filter(item => !usedQuestions.includes(item.image));
-  
-    if (unused.length === 0) {
-      alert("All questions answered! Game complete.");
-      return;
-    }
+    const unused = levelData.filter(item =>
+      selectedImages.includes(item.image) && !usedQuestions.includes(item.image)
+    );
   
     currentQuestionItem = unused[Math.floor(Math.random() * unused.length)];
     usedQuestions.push(currentQuestionItem.image);
   
-    document.getElementById('question-text').textContent = currentQuestionItem.question;
+    document.getElementById('question-text').innerHTML = currentQuestionItem.question;
+    document.getElementById('question-title').innerHTML = currentQuestionItem.title;
     document.getElementById('question-overlay').classList.add('visible');
   }
   

@@ -16,18 +16,17 @@
           <button id="start-button">Start Game</button>
         </div>
       </div>
-
+      <button id="open-study" class="hidden" aria-label="Open Study Screen">_open study notes</button>
       <div id="study-screen" class="overlay hidden">
         <button id="close-study" aria-label="Close Study Screen">&times;</button>
+        
+        <h1 id="study-header">Study Notes</h1>
         <div class="study-content">
-          <h1>Study Notes</h1>
+          <h1>Study Time</h1>
           <div id="study-items" class="study-items"></div>
         </div>
       </div>
-
-  <!-- Study Button at top a -->
-  <button id="open-study-button" style="position: absolute; top: 10px; right: 10px; z-index: 999;">Study Notes</button>          
-  
+            
   <div id="game-board">
     <!-- The tiles will be dynamically inserted here by JavaScript -->
   </div>
@@ -35,7 +34,7 @@
     <!-- Question Overlay -->
     <div id="question-overlay" class="question-overlay">
         <div class="question-content">
-        <h2>Question</h2>
+        <h2 id="question-title"></h2>
         <p id="question-text"></p>
         <button id="start-answer">Let's Go</button>
         </div>
