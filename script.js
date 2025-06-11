@@ -11,6 +11,7 @@ const images = [
   let levelData = [];
   let usedQuestions = [];
   let currentQuestionItem = null;
+  let firstLoad = true;
   
   fetch('level1.json')
     .then(res => res.json())
@@ -134,6 +135,30 @@ const images = [
     
   });
 
+  // Disable the study button initially
+  const openStudyBtn = document.getElementById('open-study-button');
+  openStudyBtn.disabled = true;
+  openStudyBtn.style.opacity = '0';
+
+  // Enable after first close of study screen
+  const originalCloseStudy = document.getElementById('close-study').onclick;
+  document.getElementById('close-study').addEventListener('click', () => {
+    openStudyBtn.disabled = false;
+    openStudyBtn.style.opacity = '1';
+  }, { once: true });
+
+  // Trigger overlay when Study button is clicked
+  openStudyBtn.addEventListener('click', () => {
+    document.getElementById('question-overlay').classList.remove('visible');
+    const studyScreen = document.getElementById('study-screen');
+    openStudyBtn.style.opacity = '0';
+    studyScreen.classList.remove('hidden');
+    requestAnimationFrame(() => {
+      studyScreen.classList.add('show');
+    });
+  });
+
+
   function showStudyScreenWithImages(imageList) {
      const studyScreen = document.getElementById('study-screen');
      const studyItems = studyScreen.querySelector('#study-items');
@@ -166,19 +191,22 @@ const images = [
     document.getElementById('close-study').addEventListener('click', () => {
         // Fade out the study overlay
         document.getElementById('study-screen').classList.remove('show');
-      
-        // Flip all tiles back
-        document.querySelectorAll('.tile').forEach(tile => {
-          tile.classList.remove('flip');
-        });
+        openStudyBtn.style.opacity = '1';
+        if(firstLoad){
+          // Flip all tiles back
+          document.querySelectorAll('.tile').forEach(tile => {
+            tile.classList.remove('flip');
+          });
 
-        setNewQuestion();
+          setNewQuestion();
 
-      
-        // Wait for the flip animation to complete before reshuffling
-        setTimeout(() => {
-          document.getElementById('question-overlay').classList.add('visible');
-        }, 500); // match your CSS transition duration
+        
+          // Wait for the flip animation to complete before reshuffling
+          setTimeout(() => {
+            document.getElementById('question-overlay').classList.add('visible');
+          }, 500); // match your CSS transition duration
+          firstLoad = false;
+        }
       });
 
   }
@@ -211,7 +239,6 @@ const images = [
     document.getElementById('question-overlay').classList.add('visible');
   }
   
-  
-  
+
   // Initialize
   createTiles();
