@@ -14,6 +14,7 @@ const images = [
   let levelData = [];
   let usedQuestions = [];
   let currentQuestionItem = null;
+  let firstTimeClosing = true;
   
   fetch('level1.json')
     .then(res => res.json())
@@ -198,19 +199,21 @@ const images = [
     document.getElementById('close-study').addEventListener('click', () => {
         // Fade out the study overlay
         document.getElementById('study-screen').classList.remove('show');
-      
-        // Flip all tiles back
-        document.querySelectorAll('.tile').forEach(tile => {
-          tile.classList.remove('flip');
-        });
+        if(firstTimeClosing){
+          // Flip all tiles back
+          document.querySelectorAll('.tile').forEach(tile => {
+            tile.classList.remove('flip');
+          });
 
-        setNewQuestion();
+          setNewQuestion();
 
-      
-        // Wait for the flip animation to complete before reshuffling
-        setTimeout(() => {
-          document.getElementById('question-overlay').classList.add('visible');
-        }, 500); // match your CSS transition duration
+        
+          // Wait for the flip animation to complete before reshuffling
+          setTimeout(() => {
+            document.getElementById('question-overlay').classList.add('visible');
+          }, 500); // match your CSS transition duration
+          firstTimeClosing = false;
+       }
       });
 
   }
