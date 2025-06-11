@@ -199,6 +199,7 @@ const images = [
     document.getElementById('close-study').addEventListener('click', () => {
         // Fade out the study overlay
         document.getElementById('study-screen').classList.remove('show');
+        openStudyBtn.style.opacity = '1';
         if(firstTimeClosing){
           // Flip all tiles back
           document.querySelectorAll('.tile').forEach(tile => {
