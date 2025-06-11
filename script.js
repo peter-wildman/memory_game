@@ -147,12 +147,16 @@ const images = [
   const openStudyBtn = document.getElementById('open-study-button');
   openStudyBtn.disabled = true;
   openStudyBtn.style.opacity = '0';
-
+  const openQuestionBtn = document.getElementById('open-question-button');
+  openQuestionBtn.disabled = true;
+  openQuestionBtn.style.display = 'none';
   // Enable after first close of study screen
   const originalCloseStudy = document.getElementById('close-study').onclick;
   document.getElementById('close-study').addEventListener('click', () => {
     openStudyBtn.disabled = false;
     openStudyBtn.style.opacity = '1';
+    openQuestionBtn.disabled = false;
+    openQuestionBtn.style.display = 'block';
   }, { once: true });
 
   // Trigger overlay when Study button is clicked
@@ -160,10 +164,16 @@ const images = [
     document.getElementById('question-overlay').classList.remove('visible');
     const studyScreen = document.getElementById('study-screen');
     openStudyBtn.style.opacity = '0';
+    openQuestionBtn.style.display = 'none';
     studyScreen.classList.remove('hidden');
     requestAnimationFrame(() => {
       studyScreen.classList.add('show');
     });
+  });
+
+  // Trigger overlay when question button is clicked
+  openQuestionBtn.addEventListener('click', () => {
+    document.getElementById('question-overlay').classList.add('visible');
   });
 
 
@@ -200,6 +210,7 @@ const images = [
         // Fade out the study overlay
         document.getElementById('study-screen').classList.remove('show');
         openStudyBtn.style.opacity = '1';
+        openQuestionBtn.style.display = 'block';
         if(firstTimeClosing){
           // Flip all tiles back
           document.querySelectorAll('.tile').forEach(tile => {
