@@ -9,7 +9,6 @@ const images = [
   let flippedTiles = [];
   let matchedPairs = 0;
   
-
   let levelData = [];
   let usedQuestions = [];
   let currentQuestionItem = null;
@@ -19,8 +18,6 @@ const images = [
     .then(res => res.json())
     .then(data => { levelData = data; })
     .catch(err => console.error(err));
-  
-    
   
   // Shuffle function
   const shuffle = (arr) => arr.sort(() => Math.random() - 0.5);
@@ -265,7 +262,7 @@ const images = [
     document.getElementById('question-title').innerHTML = currentQuestionItem.title;
     document.getElementById('question-overlay').classList.add('visible');
   }
-  
+
 
   // Initialize
   createTiles();
