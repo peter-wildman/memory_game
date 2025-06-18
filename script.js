@@ -4,7 +4,10 @@ const images = [
     'image7.jpg', 'image8.jpg', 'image9.jpg', 
     'image10.jpg', 'image11.jpg', 'image12.jpg'
   ]; 
-  
+
+  //brought in from intro page work - may be redundent with above
+  const introImages = Array.from({ length: 12 }, (_, i) => `image${i + 1}.jpg`);
+
   let tiles = [];
   let flippedTiles = [];
   let matchedPairs = 0;
@@ -106,7 +109,8 @@ const images = [
   document.getElementById('start-button').addEventListener('click', () => {
     //Remove start screen
     document.getElementById('start-screen').style.display = 'none';
- 
+    document.getElementById('game-board').style.display = 'grid';
+    document.body.style.backgroundColor = 'white';
     // Flip all tiles at the start
     setTimeout(() => {
         const tileElements = document.querySelectorAll('.tile');
@@ -253,3 +257,84 @@ const images = [
 
   // Initialize
   createTiles();
+
+  //all the JS functions from intro image thing
+  function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function fillScreenWithTiles() {
+      const mosaic = document.getElementById('intro-mosaic');
+      const title = document.getElementById('title-overlay');
+      const titleText = document.getElementById('title-text');
+      const buttons = document.getElementById('button-container');
+
+      const baseSize = 100;
+      const minCols = 4;
+
+      const cols = Math.max(minCols, Math.floor(window.innerWidth / baseSize));
+      const tileSize = window.innerWidth / cols;
+      const rows = Math.ceil(window.innerHeight / tileSize);
+
+      mosaic.style.gridTemplateColumns = `repeat(${cols}, ${tileSize}px)`;
+      mosaic.style.gridTemplateRows = `repeat(${rows}, ${tileSize}px)`;
+
+      const totalTiles = rows * cols;
+      mosaic.innerHTML = '';
+
+      const repeatedImages = [];
+      while (repeatedImages.length < totalTiles) {
+        repeatedImages.push(...introImages);
+      }
+      repeatedImages.length = totalTiles;
+
+      shuffleArray(repeatedImages);
+
+      for (let i = 0; i < totalTiles; i++) {
+        const tile = document.createElement('div');
+        tile.classList.add('intro-tile');
+        tile.style.backgroundImage = `url(${repeatedImages[i]})`;
+        tile.style.width = `${tileSize}px`;
+        tile.style.height = `${tileSize}px`;
+        tile.style.transitionDelay = `${Math.floor(i / cols + i % cols) * 50}ms`;
+        mosaic.appendChild(tile);
+      }
+
+      requestAnimationFrame(() => {
+        document.querySelectorAll('.intro-tile').forEach(tile => {
+          tile.style.opacity = '1';
+        });
+      });
+
+      // Flip forward, then back, then show title
+      setTimeout(() => {
+        const tiles = document.querySelectorAll('.intro-tile');
+        tiles.forEach(tile => tile.classList.add('flipped'));
+
+        title.classList.add('visible');
+
+        setTimeout(() => {
+          tiles.forEach(tile => tile.classList.remove('flipped'));
+
+          // Fade out just the text
+          titleText.style.opacity = '0';
+          buttons.classList.remove('visible');
+
+          setTimeout(() => {
+            titleText.innerHTML = `Memory<br>Quiz`;
+            titleText.style.opacity = '1';
+            buttons.classList.add('visible');
+          }, 400);
+        }, 2000);
+      }, 1100);
+    }
+
+    window.addEventListener('load', fillScreenWithTiles);
+    window.addEventListener('resize', () => {
+      clearTimeout(window._resizeTimeout);
+      window._resizeTimeout = setTimeout(fillScreenWithTiles, 200);
+    });
