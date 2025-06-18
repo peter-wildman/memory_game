@@ -26,7 +26,7 @@ const images = [
   const createTiles = () => {
     let allTiles = [];
   
-    // Step 1: Pick 3 unique images
+    // Step 1: Pick 6 unique images
     selectedImages = shuffle([...images]).slice(0, 6); // [imgA, imgB, imgC]
   
     // Step 2: Create image pairs
