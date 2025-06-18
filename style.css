@@ -284,6 +284,35 @@ body {
     transform: rotateY(180deg);
 }
 
+/* Container to center and hold the buttons */
+#top-buttons {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 999;
+}
+
+/* Shared style for both buttons */
+#top-buttons button {
+  padding: 10px 60px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#top-buttons button:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
 /* Mobile responsiveness */
 @media (max-width: 600px) {
     #game-board {
