@@ -5,7 +5,6 @@ const images = [
     'image10.jpg', 'image11.jpg', 'image12.jpg'
   ]; 
   
-  const colors = ['#FF5733', '#33FF57', '#3357FF', '#FF33A6', '#FF8033', '#33FFD5'];
   let tiles = [];
   let flippedTiles = [];
   let matchedPairs = 0;
@@ -36,13 +35,9 @@ const images = [
     // Step 2: Create image pairs
     const imagePairs = shuffle([...selectedImages, ...selectedImages]); // [imgA, imgB, imgC, imgA, imgB, imgC] shuffled
   
-    // Step 3: Shuffle colors and assign to each tile
-    const shuffledColors = shuffle([...colors]).slice(0, 12);
-  
     for (let i = 0; i < 12; i++) {
       allTiles.push({
-        color: shuffledColors[i],
-        image: imagePairs[i],
+        image: imagePairs[i]
       });
     }
   
