@@ -26,6 +26,11 @@ body {
     align-items: center;
     z-index: 1000;
   }
+
+  .sub-heading{
+    position:relative;
+    top: -8px;
+  }
   
   .overlay-content {
     text-align: center;
@@ -34,13 +39,13 @@ body {
   }
   
   #start-screen h1 {
-    font-size: 2rem;
+    font-size: 1.7rem;
     margin-bottom: 10px;
   }
   
   #start-screen p {
     font-size: 1.2rem;
-    margin-bottom: 20px;
+    margin-bottom: 33px;
   }
   
   #start-button, #tutorial-button {
