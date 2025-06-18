@@ -112,7 +112,9 @@ const images = [
   
 
   document.getElementById('start-button').addEventListener('click', () => {
+    //Remove start screen
     document.getElementById('start-screen').style.display = 'none';
+ 
     // Flip all tiles at the start
     setTimeout(() => {
         const tileElements = document.querySelectorAll('.tile');
@@ -230,18 +232,18 @@ const images = [
 
   }
 
-  document.getElementById('open-study').addEventListener('click', () => {
-    document.getElementById('open-study').classList.remove('show');
-    document.getElementById('open-study').classList.add('hidden');
-    document.getElementById('question-overlay').classList.remove('visible');
-    const studyScreen = document.getElementById('study-screen');
-    const studyItems = studyScreen.querySelector('#study-items');
-    // Show the overlay
-    studyScreen.classList.remove('hidden');
-    requestAnimationFrame(() => {
-      studyScreen.classList.add('show');
-   });
-  }); 
+  // document.getElementById('open-study').addEventListener('click', () => {
+  //   document.getElementById('open-study').classList.remove('show');
+  //   document.getElementById('open-study').classList.add('hidden');
+  //   document.getElementById('question-overlay').classList.remove('visible');
+  //   const studyScreen = document.getElementById('study-screen');
+  //   const studyItems = studyScreen.querySelector('#study-items');
+  //   // Show the overlay
+  //   studyScreen.classList.remove('hidden');
+  //   requestAnimationFrame(() => {
+  //     studyScreen.classList.add('show');
+  //  });
+  // }); 
 
   document.getElementById('start-answer').addEventListener('click', () => {
     document.getElementById('question-overlay').classList.remove('visible');
