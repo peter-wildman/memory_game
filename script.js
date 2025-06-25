@@ -135,8 +135,15 @@ const images = [
       }, 900); // wait a bit so user sees the last tile flip
 
       setTimeout(() => {
+        // Flip all tiles back
+          document.querySelectorAll('.tile').forEach(tile => {
+            tile.classList.remove('flip');
+          });
+      }, 3500);
+
+      setTimeout(() => {
         showStudyScreenWithImages(selectedImages);
-      }, 2500);
+      }, 4500);
       
     
   });
@@ -210,10 +217,10 @@ const images = [
         openStudyBtn.style.opacity = '1';
         openQuestionBtn.style.display = 'block';
         if(firstTimeClosing){
-          // Flip all tiles back
-          document.querySelectorAll('.tile').forEach(tile => {
-            tile.classList.remove('flip');
-          });
+          // // Flip all tiles back
+          // document.querySelectorAll('.tile').forEach(tile => {
+          //   tile.classList.remove('flip');
+          // });
 
           setNewQuestion();
 
