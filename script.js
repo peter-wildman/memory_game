@@ -348,10 +348,10 @@ const images = [
       fillScreenWithTiles(); // already there
       setTimeout(() => {
         window.dispatchEvent(new Event('resize'));
-      }, 100);
+      }, 500);
     });
 
     window.addEventListener('resize', () => {
-      clearTimeout(window._resizeTimeout);
-      window._resizeTimeout = setTimeout(fillScreenWithTiles, 200);
+      // clearTimeout(window._resizeTimeout);
+      // window._resizeTimeout = setTimeout(fillScreenWithTiles, 200);
     });
