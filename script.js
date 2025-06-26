@@ -308,6 +308,10 @@ const images = [
         mosaic.appendChild(tile);
       }
 
+      setTimeout(() => {
+      
+      
+
       requestAnimationFrame(() => {
         document.querySelectorAll('.intro-tile').forEach(tile => {
           tile.style.opacity = '1';
@@ -335,6 +339,9 @@ const images = [
           }, 400);
         }, 2000);
       }, 1100);
+    //this is a delay at the start to allow the images to load
+    //if anything within this timeout is the issue then this won't fix  
+    }, 500);
     }
 
     window.addEventListener('load', fillScreenWithTiles);
