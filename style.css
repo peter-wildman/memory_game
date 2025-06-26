@@ -363,16 +363,11 @@ body {
       transform: rotateY(180deg);
     }
 
-    #title-container{
-      width:100dvw;
-      height:100dvh;
-      background-color: aquamarine;
-    }
-
     #title-overlay {
       position: fixed;
-      top: 200px;
-      left: 18dvw;
+      top: 40dvh;
+      left: 50dvw;
+      transform: translate(-50%, -50%);
       color: black;
       font-size: 3rem;
       opacity: 0;
