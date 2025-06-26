@@ -217,14 +217,9 @@ const images = [
         openStudyBtn.style.opacity = '1';
         openQuestionBtn.style.display = 'block';
         if(firstTimeClosing){
-          // // Flip all tiles back
-          // document.querySelectorAll('.tile').forEach(tile => {
-          //   tile.classList.remove('flip');
-          // });
 
           setNewQuestion();
-
-        
+ 
           // Wait for the flip animation to complete before reshuffling
           setTimeout(() => {
             document.getElementById('question-overlay').classList.add('visible');
