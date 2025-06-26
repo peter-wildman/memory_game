@@ -25,6 +25,7 @@ body {
 }
 
 
+
   .sub-heading{
     position:relative;
     top: -8px;
@@ -114,8 +115,25 @@ body {
 
   .study-item h2{
     padding-bottom: 10px;
+    font-size: 1.2em;
+  }
+
+  .study-item h3{
+    padding-bottom: 15px;
+    /* padding-top: 20px; */
+    font-size: 1em;
+  }
+
+  .study-item .researcher-name{
+    font-size: 1.1em;
+    padding-bottom: 5px;
+    padding-top: 10px;
+  }
+
+  .study-item .research-text{
     font-size: 1.1em;
   }
+
   #study-screen {
     position: fixed;
     top: 0;

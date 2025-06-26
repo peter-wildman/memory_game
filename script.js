@@ -200,7 +200,9 @@ const images = [
        studyItem.innerHTML = `
          <div class="study-image" style="background-image: url('${entry.image}')"></div>
          <h2>${entry.title}</h2>
-         <p>${entry.text}</p>
+         <p class="researcher-name"> ${entry.name}</p>
+         <h3> ${entry.role} </h3>
+         <p class="research-text">${entry.text}</p>
        `;
        studyItems.appendChild(studyItem);
      });
