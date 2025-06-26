@@ -364,8 +364,8 @@ body {
     }
 
     #title-container{
-      width:dvw;
-      height:dvh;
+      width:100dvw;
+      height:100dvh;
       background-color: aquamarine;
     }
 
