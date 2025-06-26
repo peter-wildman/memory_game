@@ -365,9 +365,9 @@ body {
 
     #title-overlay {
       position: fixed;
-      top: 40dvh;
-      left: 50dvw;
-      transform: translate(-50%, -50%);
+      top: 200px;
+      left: 50%;
+      transform: translateX(-50%);
       color: black;
       font-size: 3rem;
       opacity: 0;
@@ -390,7 +390,7 @@ body {
 
     #button-container {
       position: fixed;
-      top: calc(40% + 120px);
+      top: 390px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
