@@ -5,13 +5,22 @@
     box-sizing: border-box;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100dvh;
+  width: 100dvw;
+}
+
+
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0; padding: 0; width: 100vw; height: 100vh;
-    overflow: hidden;
+    margin: 0; padding: 0; width: 100dvw; height: 100dvh;
     background-color: black;
 }
 
@@ -91,7 +100,7 @@ body {
     flex-direction: column;
     gap: 30px;
     width: 85%;
-    max-height: 80vh;
+    max-height: 80dvh;
     /* overflow-y: auto; */
   }
   
@@ -111,8 +120,8 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100dvw;
+    height: 100dvh;
     background-color: white;
     opacity: 0;
     visibility: hidden;
@@ -172,8 +181,8 @@ body {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 75vw;
-    height: 33vh;
+    width: 75dvw;
+    height: 33dvh;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.9);
     color: white;
@@ -318,9 +327,9 @@ body {
       display: grid;
       position: fixed;
       top: 0; left: 0;
-      width: 100vw;
+      width: 100dvw;
       height: auto;
-      min-height: 100vh;
+      min-height: 100dvh;
       z-index: 10;
     }
 
