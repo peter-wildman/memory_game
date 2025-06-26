@@ -322,7 +322,8 @@ const images = [
       setTimeout(() => {
         const tiles = document.querySelectorAll('.intro-tile');
         tiles.forEach(tile => tile.classList.add('flipped'));
-
+        //if there is a way to set something do it here for title-overlay
+        //in CSS
         title.classList.add('visible');
 
         setTimeout(() => {

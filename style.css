@@ -365,8 +365,8 @@ body {
 
     #title-overlay {
       position: fixed;
-      top: 40%;
-      left: 50%;
+      top: 40dvh;
+      left: 50dvw;
       transform: translate(-50%, -50%);
       color: black;
       font-size: 3rem;
