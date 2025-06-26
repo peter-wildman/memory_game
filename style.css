@@ -367,7 +367,7 @@ body {
       position: fixed;
       top: 200px;
       left: 50dvw;
-      /* transform: translate(-50%, -400px); */
+      transform: translate(-50%, 0); 
       color: black;
       font-size: 3rem;
       opacity: 0;
