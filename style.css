@@ -368,16 +368,15 @@ body {
       top: 200px;
       left: 50%;
       transform: translateX(-50%);
-      color: black;
+      color: white;
       font-size: 3rem;
       opacity: 0;
       transition: opacity 1s ease;
       z-index: 20;
-      background-image: url('cloudbwbg.jpg'); /* ✅ Your cloud image */
+      background-image: url('paperbbg.jpg'); /* ✅ Your cloud image */
       background-size: cover;              /* ✅ Scale to cover the box */
       background-repeat: no-repeat;        /* ✅ Prevent tiling */
       background-position: center;         /* ✅ Center the image */    
-      /* background-color: white;  */
       padding: 22px;
       border-radius: 10px;
       text-align: center;
@@ -414,8 +413,7 @@ body {
     }
 
     #button-container button {
-      /* background-color: white;  */
-      background-image: url('cloudbwbg.jpg'); /* ✅ Your cloud image */
+      background-image: url('paperwbg.jpg'); /* ✅ Your cloud image */
       background-size: cover;              /* ✅ Scale to cover the box */
       background-repeat: no-repeat;        /* ✅ Prevent tiling */
       background-position: center;         /* ✅ Center the image */  
