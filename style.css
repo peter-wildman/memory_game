@@ -248,9 +248,11 @@ body {
     color: #000;
     border: none;
     border-radius: 5px;
+    font-weight: 370;
+    font-family: "Roboto Slab", sans-serif;
+    font-style: regular;
   }
-  
-  
+ 
 /* Game board styling */
 #game-board {
     /* display: grid; */
@@ -321,6 +323,7 @@ body {
 #top-buttons button {
   padding: 10px 60px;
   font-size: 1rem;
+  line-height: 20px;
   border: none;
   border-radius: 8px;
   background-color: #fff;
@@ -328,12 +331,11 @@ body {
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 370;
+  font-style: regular;
 }
 
-#top-buttons button:hover {
-  background-color: #f0f0f0;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-}
 
 /* Mobile responsiveness */
 @media (max-width: 600px) {
