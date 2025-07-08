@@ -114,25 +114,12 @@ const images = [
     // Flip all tiles at the start
     setTimeout(() => {
         const tileElements = document.querySelectorAll('.tile');
-        const imageMap = {};
-
-        // Group tiles by background image
-        tileElements.forEach(tile => {
-            const image = tile.querySelector('.back').style.backgroundImage;
-            if (!imageMap[image]) {
-            imageMap[image] = [];
-            }
-            imageMap[image].push(tile);
+        tileElements.forEach((tile, index) => {
+          setTimeout(() => {
+            tile.classList.add('flip');
+          }, index * 50); // 50ms delay between each tile flip
         });
-
-        // Flip one tile from each pair
-        Object.values(imageMap).forEach(pair => {
-            if (pair.length >= 1) {
-            const randomIndex = Math.floor(Math.random() * pair.length);
-            pair[randomIndex].classList.add('flip');
-            }
-        });
-      }, 900); // wait a bit so user sees the last tile flip
+      }, 900); // delay the intital flip
 
       setTimeout(() => {
         // Flip all tiles back
@@ -143,9 +130,7 @@ const images = [
 
       setTimeout(() => {
         showStudyScreenWithImages(selectedImages);
-      }, 4500);
-      
-    
+      }, 4500); // delay the flip back
   });
 
   // Disable the study button initially
