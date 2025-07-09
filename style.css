@@ -458,7 +458,7 @@
     }
     @keyframes confetti-fall {
       0% {
-        transform: translateY(150vh) rotate(0deg);
+        transform: translateY(var(--start-y)) rotate(0deg);
         opacity: 1;
       }
       100% {
