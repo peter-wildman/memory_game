@@ -83,12 +83,13 @@ const images = [
     if (firstImage === secondImage && firstImage === targetImage) {
       matchedPairs++;
       flippedTiles = [];
-  
       if (matchedPairs === 6) {
         // Wait for two frames so the flip can visually complete
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
-            alert("You win!");
+            showConfetti();
+            //flip all tiles back
+            startNewRound();
           });
         });
       } else {
@@ -108,6 +109,24 @@ const images = [
       }, 1000);
     }
   }
+
+  function startNewRound(){
+    usedQuestions = []; // 💡 Clear question history per round
+
+    // Flip all tiles back
+      document.querySelectorAll('.tile').forEach(tile => {
+        tile.classList.remove('flip');
+      });
+
+      // Delay before resetting to allow flip back animation
+      setTimeout(() => {
+        reshuffleTiles(); // This clears and calls createTiles()
+        firstTimeClosing = true;
+        setTimeout(() => {
+        flipTilesOpenStudy();
+        }, 1000); // delay so study screen doesn't interrupt tile rendering
+      }, 1000);
+  }
   
 
   document.getElementById('start-button').addEventListener('click', () => {
@@ -115,7 +134,11 @@ const images = [
     document.getElementById('start-screen').style.display = 'none';
     document.getElementById('game-board').style.display = 'grid';
     document.body.style.backgroundColor = 'white';
-    // Flip all tiles at the start
+    flipTilesOpenStudy();
+  });
+
+  function flipTilesOpenStudy(){
+     // Flip all tiles at the start
     setTimeout(() => {
         const tileElements = document.querySelectorAll('.tile');
         tileElements.forEach((tile, index) => {
@@ -133,9 +156,12 @@ const images = [
       }, 3500);
 
       setTimeout(() => {
+        // Hide buttons until study screen closes again
+        openStudyBtn.style.opacity = '0';
+        openQuestionBtn.style.display = 'none';
         showStudyScreenWithImages(selectedImages);
       }, 4500); // delay the flip back
-  });
+  }
 
   // Disable the study button initially
   const openStudyBtn = document.getElementById('open-study-button');
@@ -238,7 +264,6 @@ const images = [
     const unused = levelData.filter(item =>
       selectedImages.includes(item.image) && !usedQuestions.includes(item.image)
     );
-  
     currentQuestionItem = unused[Math.floor(Math.random() * unused.length)];
     usedQuestions.push(currentQuestionItem.image);
   
