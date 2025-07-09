@@ -327,7 +327,7 @@ const images = [
             titleText.style.opacity = '1';
             buttons.classList.add('visible');
           }, 400);
-        }, 2000);
+        }, 1800);
       }, 1100);
     //this is a delay at the start to allow the images to load
     //if anything within this timeout is the issue then this won't fix  
