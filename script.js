@@ -342,7 +342,7 @@ const images = [
         const confetti = document.createElement('div');
         confetti.classList.add('confetti-piece');
         confetti.style.left = `${Math.random() * 100}%`;
-        confetti.style.setProperty('--fall-duration', `${Math.random() *1 + 0.9}s`);
+        confetti.style.setProperty('--fall-duration', `${Math.random() *1 + 1.5}s`);
         confetti.style.setProperty('--confetti-color', getRandomColor());
         const startY = -20 - Math.random() * 180; // 150vh to 330vh
         confetti.style.setProperty('--start-y', `${startY}vh`);
