@@ -353,7 +353,7 @@ const images = [
         });
       }
       function getRandomColor() {
-        const colors = ['#ff6347', '#ffa500', '#32cd32', '#1e90ff', '#ff69b4'];
+        const colors = ['#ff00cc', '#ffd700', '#ff6600', '#00ff66', '#00ccff'];
         return colors[Math.floor(Math.random() * colors.length)];
       }
     }
