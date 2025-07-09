@@ -93,8 +93,12 @@ const images = [
         });
       } else {
         setTimeout(() => {
+          showConfetti();
+        }, 200);
+
+        setTimeout(() => {
           setNewQuestion();
-        }, 500);
+        }, 1800);
       }
     } else {
       setTimeout(() => {
@@ -329,6 +333,30 @@ const images = [
     //if anything within this timeout is the issue then this won't fix  
     }, 500);
     }
+
+
+    function showConfetti(){
+      const confettiWrapper = document.querySelector('.confetti-wrapper');
+      // Generate confetti
+      for (let i = 0; i < 300; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti-piece');
+        confetti.style.left = `${Math.random() * 100}%`;
+        confetti.style.setProperty('--fall-duration', `${Math.random() *1.5 + 0.9}s`);
+        confetti.style.setProperty('--confetti-color', getRandomColor());
+        confettiWrapper.appendChild(confetti);
+        // Remove when animation ends
+        confetti.addEventListener('animationend', () => {
+          confetti.remove();
+        });
+      }
+      function getRandomColor() {
+        const colors = ['#ff6347', '#ffa500', '#32cd32', '#1e90ff', '#ff69b4'];
+        return colors[Math.floor(Math.random() * colors.length)];
+      }
+    }
+
+
 
     window.addEventListener('load', () => {
       fillScreenWithTiles(); // already there
