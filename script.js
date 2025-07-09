@@ -98,7 +98,7 @@ const images = [
 
         setTimeout(() => {
           setNewQuestion();
-        }, 1800);
+        }, 2000);
       }
     } else {
       setTimeout(() => {
