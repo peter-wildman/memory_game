@@ -344,7 +344,7 @@ const images = [
         confetti.style.left = `${Math.random() * 100}%`;
         confetti.style.setProperty('--fall-duration', `${Math.random() *1 + 0.9}s`);
         confetti.style.setProperty('--confetti-color', getRandomColor());
-        const startY = 150 + Math.random() * 180; // 150vh to 330vh
+        const startY = -20 - Math.random() * 180; // 150vh to 330vh
         confetti.style.setProperty('--start-y', `${startY}vh`);
         confettiWrapper.appendChild(confetti);
         // Remove when animation ends
