@@ -21,6 +21,21 @@ const images = [
     .then(res => res.json())
     .then(data => { levelData = data; })
     .catch(err => console.error(err));
+
+  const aboutButton = document.querySelector('#start-screen button:nth-child(2)');
+  const aboutScreen = document.getElementById('about-screen');
+  const closeAbout = document.getElementById('close-about');
+
+  aboutButton.addEventListener('click', () => {
+    aboutScreen.classList.add('show');
+    aboutScreen.classList.remove('hidden');
+  });
+
+  closeAbout.addEventListener('click', () => {
+    aboutScreen.classList.remove('show');
+    aboutScreen.classList.add('hidden');
+  });
+  
   
   // Shuffle function
   const shuffle = (arr) => arr.sort(() => Math.random() - 0.5);

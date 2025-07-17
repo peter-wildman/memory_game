@@ -48,6 +48,61 @@
     border-radius: 5px;
     cursor: pointer;
   }
+/* about screen styling */
+  #about-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  background-color: white;
+  overflow-y: auto; /* ✅ makes it scrollable */
+  padding: 40px 60px;
+  box-sizing: border-box;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+}
+
+#about-screen.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+#about-screen h1 {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+#about-screen p {
+  margin-bottom: 1.2rem;
+}
+
+
+#close-about {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 32px;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  z-index: 1000;
+}
+
 
 /* Study time styling */
   .overlay {
