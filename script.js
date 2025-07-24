@@ -8,6 +8,14 @@ const images = Array.from({ length: 12 }, (_, i) => `image${i + 1}.jpg`);
   let usedQuestions = [];
   let currentQuestionItem = null;
   let firstTimeClosing = true;
+
+  // Add these near the top after your initial variable declarations
+  let currentScreen = 'start';
+  const screenStates = {
+    study: { isOpen: false },
+    about: { isOpen: false },
+    question: { isOpen: false }
+  };
   
   fetch('level1.json')
     .then(res => res.json())
@@ -18,14 +26,54 @@ const images = Array.from({ length: 12 }, (_, i) => `image${i + 1}.jpg`);
   const aboutScreen = document.getElementById('about-screen');
   const closeAbout = document.getElementById('close-about');
 
+
+  // Add this function after the variable declarations
+  function handleScreenTransition(fromScreen, toScreen) {
+    switch(fromScreen) {
+      case 'study':
+        if (screenStates.study.isOpen) {
+          document.getElementById('close-study').dispatchEvent(new Event('click'));
+          screenStates.study.isOpen = false;
+        }
+        break;
+      case 'about':
+        if (screenStates.about.isOpen) {
+          closeAbout.dispatchEvent(new Event('click'));
+          screenStates.about.isOpen = false;
+        }
+        break;
+      case 'question':
+        if (screenStates.question.isOpen) {
+          document.getElementById('start-answer').dispatchEvent(new Event('click'));
+          screenStates.question.isOpen = false;
+        }
+        break;
+    }
+  } 
+
+      // Add the popstate handler
+    window.onpopstate = function(event) {
+      if (event.state) {
+        const previousScreen = currentScreen;
+        const nextScreen = event.state.screen;
+        handleScreenTransition(previousScreen, nextScreen);
+        currentScreen = nextScreen;
+      }
+    };
+
   aboutButton.addEventListener('click', () => {
     aboutScreen.classList.add('show');
     aboutScreen.classList.remove('hidden');
+    screenStates.about.isOpen = true;
+    history.pushState({ screen: 'about' }, '', '#about');
+    currentScreen = 'about';
   });
 
   closeAbout.addEventListener('click', () => {
     aboutScreen.classList.remove('show');
     aboutScreen.classList.add('hidden');
+    screenStates.about.isOpen = false;
+    history.back();
   });
   
   
@@ -147,6 +195,8 @@ const images = Array.from({ length: 12 }, (_, i) => `image${i + 1}.jpg`);
     document.getElementById('start-screen').style.display = 'none';
     document.getElementById('game-board').style.display = 'grid';
     document.body.style.backgroundColor = 'white';
+    history.pushState({ screen: 'game' }, '', '#game');
+    currentScreen = 'game';
     flipTilesOpenStudy();
   });
 
@@ -159,21 +209,27 @@ const images = Array.from({ length: 12 }, (_, i) => `image${i + 1}.jpg`);
             tile.classList.add('flip');
           }, index * 50); // 50ms delay between each tile flip
         });
-      }, 900); // delay the intital flip
+    }, 900); // delay the initial flip
 
-      setTimeout(() => {
+    setTimeout(() => {
         // Flip all tiles back
-          document.querySelectorAll('.tile').forEach(tile => {
+        document.querySelectorAll('.tile').forEach(tile => {
             tile.classList.remove('flip');
-          });
-      }, 3500);
+        });
+    }, 3500);
 
-      setTimeout(() => {
+    setTimeout(() => {
         // Hide buttons until study screen closes again
         openStudyBtn.style.opacity = '0';
         openQuestionBtn.style.display = 'none';
+        
+        // Update screen state before showing study screen
+        screenStates.study.isOpen = true;
+        history.pushState({ screen: 'study' }, '', '#study');
+        currentScreen = 'study';
+        
         showStudyScreenWithImages(selectedImages);
-      }, 4500); // delay the flip back
+    }, 4500); // delay the flip back
   }
 
   // Disable the study button initially
@@ -186,35 +242,93 @@ const images = Array.from({ length: 12 }, (_, i) => `image${i + 1}.jpg`);
   // Enable after first close of study screen
   const originalCloseStudy = document.getElementById('close-study').onclick;
   document.getElementById('close-study').addEventListener('click', () => {
-    openStudyBtn.disabled = false;
+    document.getElementById('study-screen').classList.remove('show');
     openStudyBtn.style.opacity = '1';
-    openQuestionBtn.disabled = false;
     openQuestionBtn.style.display = 'block';
-  }, { once: true });
+    screenStates.study.isOpen = false;
 
-  // Trigger overlay when Study button is clicked
+    // Instead of history.back(), push game state
+    history.pushState({ screen: 'game' }, '', '#game');
+    currentScreen = 'game';
+    
+    if (firstTimeClosing) {
+      setNewQuestion();
+      setTimeout(() => {
+        document.getElementById('question-overlay').classList.add('visible');
+        screenStates.question.isOpen = true;
+        history.pushState({ screen: 'question' }, '', '#question');
+        currentScreen = 'question';
+      }, 500);
+      firstTimeClosing = false;
+    }
+  });
+
+  // Replace the study button event listener
   openStudyBtn.addEventListener('click', () => {
-    document.getElementById('question-overlay').classList.remove('visible');
-    const studyScreen = document.getElementById('study-screen');
-    openStudyBtn.style.opacity = '0';
-    openQuestionBtn.style.display = 'none';
-    studyScreen.classList.remove('hidden');
-    requestAnimationFrame(() => {
-      studyScreen.classList.add('show');
-    });
+    if (!openStudyBtn.disabled) {
+      document.getElementById('question-overlay').classList.remove('visible');
+      const studyScreen = document.getElementById('study-screen');
+      openStudyBtn.style.opacity = '0';
+      openQuestionBtn.style.display = 'none';
+      studyScreen.classList.remove('hidden');
+      
+      screenStates.study.isOpen = true;
+      history.pushState({ screen: 'study' }, '', '#study');
+      currentScreen = 'study';
+      
+      showStudyScreenWithImages(selectedImages);
+    }
   });
 
-  // Trigger overlay when question button is clicked
+  // Replace the question button event listener
   openQuestionBtn.addEventListener('click', () => {
-    document.getElementById('question-overlay').classList.add('visible');
+    if (currentQuestionItem && !openQuestionBtn.disabled) {
+      document.getElementById('question-overlay').classList.add('visible');
+      screenStates.question.isOpen = true;
+      history.pushState({ screen: 'question' }, '', '#question');
+      currentScreen = 'question';
+    }
   });
 
-
-  function showStudyScreenWithImages(imageList) {
-     const studyScreen = document.getElementById('study-screen');
-     const studyItems = studyScreen.querySelector('#study-items');
+  // First, modify the close study handler to enable buttons
+document.getElementById('close-study').addEventListener('click', () => {
+  document.getElementById('study-screen').classList.remove('show');
+  openStudyBtn.style.opacity = '1';
+  openQuestionBtn.style.display = 'block';
+  screenStates.study.isOpen = false;
   
-     studyItems.innerHTML = ''; // Clear previous
+  // Enable buttons when study screen closes
+  enableGameButtons();
+  
+  history.pushState({ screen: 'game' }, '', '#game');
+  currentScreen = 'game';
+  
+  if (firstTimeClosing) {
+    setNewQuestion();
+    setTimeout(() => {
+      document.getElementById('question-overlay').classList.add('visible');
+      screenStates.question.isOpen = true;
+      history.pushState({ screen: 'question' }, '', '#question');
+      currentScreen = 'question';
+    }, 500);
+    firstTimeClosing = false;
+  }
+});
+
+// Update the enableGameButtons function
+function enableGameButtons() {
+  openStudyBtn.disabled = false;
+  openStudyBtn.style.opacity = '1';
+  openQuestionBtn.disabled = false;
+  openQuestionBtn.style.display = 'block';
+}
+
+// Update showStudyScreenWithImages to not add duplicate event listeners
+function showStudyScreenWithImages(imageList) {
+  const studyScreen = document.getElementById('study-screen');
+  const studyItems = studyScreen.querySelector('#study-items');
+  
+  studyItems.innerHTML = ''; // Clear previous
   
     // For each flipped image URL, find its data in levelData
      imageList.forEach(imgUrl => {
@@ -262,6 +376,11 @@ const images = Array.from({ length: 12 }, (_, i) => `image${i + 1}.jpg`);
 
   document.getElementById('start-answer').addEventListener('click', () => {
     document.getElementById('question-overlay').classList.remove('visible');
+    screenStates.question.isOpen = false;
+    if (currentScreen === 'question') {
+      history.pushState({ screen: 'game' }, '', '#game');
+      currentScreen = 'game';
+    }
   });
   
   function reshuffleTiles() {
@@ -387,9 +506,13 @@ const images = Array.from({ length: 12 }, (_, i) => `image${i + 1}.jpg`);
       }
     }
 
-    window.addEventListener('load', () => {
-      fillScreenWithTiles();
-      setTimeout(() => {
-          window.dispatchEvent(new Event('resize'));
-      }, 500);
-    });
+  // Add this to your window load event
+  window.addEventListener('load', () => {
+    fillScreenWithTiles();
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));
+    }, 500);
+    history.replaceState({ screen: 'start' }, '', '#start');
+    currentScreen = 'start';
+  });
+
