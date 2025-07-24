@@ -1,12 +1,4 @@
-const images = [
-    'image1.jpg', 'image2.jpg', 'image3.jpg', 
-    'image4.jpg', 'image5.jpg', 'image6.jpg',
-    'image7.jpg', 'image8.jpg', 'image9.jpg', 
-    'image10.jpg', 'image11.jpg', 'image12.jpg'
-  ]; 
-
-  //brought in from intro page work - may be redundent with above
-  const introImages = Array.from({ length: 12 }, (_, i) => `image${i + 1}.jpg`);
+const images = Array.from({ length: 12 }, (_, i) => `image${i + 1}.jpg`);
 
   let tiles = [];
   let flippedTiles = [];
@@ -38,9 +30,15 @@ const images = [
   
   
   // Shuffle function
-  const shuffle = (arr) => arr.sort(() => Math.random() - 0.5);
-  let selectedImages;
-  // Create the tiles
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+// Create the tiles
   const createTiles = () => {
     let allTiles = [];
   
@@ -291,15 +289,6 @@ const images = [
   // Initialize
   createTiles();
 
-  //all the JS functions from intro image thing
-  function shuffleArray(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
-    }
-
     function fillScreenWithTiles() {
       const mosaic = document.getElementById('intro-mosaic');
       const title = document.getElementById('title-overlay');
@@ -321,11 +310,11 @@ const images = [
 
       const repeatedImages = [];
       while (repeatedImages.length < totalTiles) {
-        repeatedImages.push(...introImages);
+        repeatedImages.push(...images);
       }
       repeatedImages.length = totalTiles;
-
-      shuffleArray(repeatedImages);
+      
+      shuffle(repeatedImages); // Using our unified shuffle function
 
       for (let i = 0; i < totalTiles; i++) {
         const tile = document.createElement('div');
@@ -398,16 +387,9 @@ const images = [
       }
     }
 
-
-
     window.addEventListener('load', () => {
-      fillScreenWithTiles(); // already there
+      fillScreenWithTiles();
       setTimeout(() => {
-        window.dispatchEvent(new Event('resize'));
+          window.dispatchEvent(new Event('resize'));
       }, 500);
-    });
-
-    window.addEventListener('resize', () => {
-      // clearTimeout(window._resizeTimeout);
-      // window._resizeTimeout = setTimeout(fillScreenWithTiles, 200);
     });
